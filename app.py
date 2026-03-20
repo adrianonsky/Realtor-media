@@ -15,20 +15,10 @@ Environment variables to set in Railway:
 import os, io, base64, tempfile, httpx, anthropic
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-try:
-    import cv2
-    import numpy as np
-    from PIL import Image
-except ImportError as e:
-    print(f"Import warning: {e}")
+import cv2
+import numpy as np
+from PIL import Image
 import replicate
-```
-
-Then **commit that change.**
-
-Also check that your `runtime.txt` file actually saved in GitHub — go to your repo and see if it appears in the file list. If it's there, click it and make sure it contains exactly:
-```
-python-3.11.9
 
 app = Flask(__name__)
 CORS(app, origins=os.environ.get("ALLOWED_ORIGIN", "*"))
